@@ -1,0 +1,275 @@
+body {
+	margin: 0; padding: 0;
+}
+.main-container {
+	padding: 42px calc(4% - 10px) 24px; /* vertical paddings same for different resolutions */
+	display: flex;
+}
+.main-container__column {
+	margin: 0 10px;
+}
+.main-container__column_fill-width {
+	flex: 1;
+}
+.placeholder {
+	background: #D8D8D8;
+}
+.placeholder1 {
+	width: 300px;
+	height: 264px;
+}
+.placeholder2 {
+	height: 112px;
+	margin-bottom: 4px;
+}
+/*# not sure whether we shoud set this globaly or per widget */
+.apps-and-more {
+	font-family: ArialMT, Arial;
+	line-height: 20px;
+	font-size: 15px;
+	color: #333333;
+}
+/*# again, not sure about the scope */
+.apps-and-more a {
+	text-decoration: none;
+	color: #005BD1;
+}
+.apps-and-more__row {}
+.apps-and-more__row-separator {
+	border-color: rgba(0, 0, 0, 0.12);
+	border-width: .5px;
+	margin: 15px 0;
+}
+.tile-row {
+	display: flex;
+	justify-content: space-between;
+}
+.tile-row__item {
+	margin-right: 20px;/*# minimal spacing, works at least in Chrome */
+}
+.tile-and-header {
+	display: flex;
+	flex-direction: column;
+}
+.tile-and-header__header {
+	display: block;
+	font-weight: bold;
+	margin-top: 6px;
+	margin-bottom: 8px;
+}
+.tile-and-header__tile {
+	margin-top: auto;
+	margin-bottom: 0;
+}
+
+/* not reusable in other sizes since border size can't be set in % */
+/* perhaps using a variable and an SVG background is a nice alternative */
+.circles-for-tiles {
+	border-radius: 50%;
+	background: linear-gradient(43.13deg, #005FF9 24.18%, #438BFF 83.37%);
+	position: relative; /* watch out not to break this */
+	box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.04);
+}
+.circles-for-tiles:after {
+	content: "";
+	height: 60%; /*# use variable for middle circle size */
+	width:  60%;
+	border-radius: 50%;
+	position: absolute;
+	top:  calc(50% - 60% / 2);
+	left: calc(50% - 60% / 2);
+	background: transparent;
+	box-sizing: border-box;
+	border: 4px solid white; /* this bit makes this not reusable */
+}
+/* variants */
+.circles-for-tiles_orange {
+	background: linear-gradient(180deg, #FDA205 -36.49%, #FB6902 100%);
+}
+.circles-for-tiles_dark {
+	background: linear-gradient(213.58deg, #3660B6 -6.54%, #053087 80.05%);
+}
+.circles-for-tiles_bright {
+	background: linear-gradient(213.58deg, #0962FE -6.54%, #0053FF 80.05%);
+}
+
+/* tiles */
+
+/*# should we align the icon vertically with the center of 2 rows unlike on the mockup? */
+.app-tile {
+}
+.app-tile__icon {
+	height: 36px;
+	width:  36px;
+	
+	margin-right: 12px;
+	display: inline-block;
+}
+.app-tile__description {
+	display: inline-block;
+}
+.app-tile__title {}
+.app-tile__subtitle {
+	color: #999999;
+}
+
+.currencies-tile {
+	display: flex;
+	margin-left:  -10px; /*# see alternatives at https://stackoverflow.com/q/20626685/3995261 */
+	margin-right: -10px;
+}
+.currency-tile {
+	margin-left:  10px;
+	margin-right: 10px;
+}
+.currency-tile__icon {
+	display: inline-block;
+	margin-right: 10px;
+}
+.currency-tile__icon_dollar {
+	/* failed to export from Figma, adapted from mail.ru page */
+	background: url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox=%220 0 16 16%22 xmlns=%22http://www.w3.org/2000/svg%22 fill-rule=%22evenodd%22 clip-rule=%22evenodd%22 stroke-linejoin=%22round%22 stroke-miterlimit=%221.414%22%3E%3Cpath d=%22M6.996 1.188v-.129a1.003 1.003 0 0 1 .929-.997c.072-.003.071-.003.143 0 .095.01.187.027.278.06a1.005 1.005 0 0 1 .65.937v.185c.819.13 1.616.403 2.348.791.31.165.609.345.899.542.195.133.384.275.576.413l.095.069a1.245 1.245 0 0 1 .476 1.037 1.259 1.259 0 0 1-.972 1.165c-.29.066-.6.024-.863-.115-.085-.045-.163-.102-.241-.158-.133-.097-.265-.195-.399-.29a13.257 13.257 0 0 0-.247-.165 5.82 5.82 0 0 0-1.672-.741v2.906c.191.047.382.093.572.142l.378.099c.185.052.371.105.555.163.854.27 1.722.639 2.339 1.311a2.917 2.917 0 0 1 .646 1.114c.075.24.121.49.135.741.018.344-.028.691-.116 1.023a4.286 4.286 0 0 1-1.157 1.961 5.054 5.054 0 0 1-1.924 1.144 6.858 6.858 0 0 1-1.418.307c-.002.1-.006.2-.012.3a1.016 1.016 0 0 1-.103.385.997.997 0 0 1-1.894-.427l-.004-.262a6.61 6.61 0 0 1-2.279-.681 5.592 5.592 0 0 1-1.256-.892 5.097 5.097 0 0 1-1.05-1.398c-.126-.252-.238-.515-.237-.802a1.245 1.245 0 0 1 .355-.87 1.262 1.262 0 0 1 1.501-.221 1.271 1.271 0 0 1 .507.525c.032.068.058.138.089.206.087.179.196.344.323.497a3.075 3.075 0 0 0 .655.582 3.76 3.76 0 0 0 1.395.529V8.759c-.815-.239-1.622-.527-2.355-.961-.539-.318-1.038-.724-1.392-1.245a3.017 3.017 0 0 1-.367-.739c-.3-.906-.112-1.929.395-2.725.251-.396.583-.735.966-1.005.806-.57 1.781-.812 2.753-.896zm2 8.086v2.907c.244-.04.485-.1.717-.185.274-.1.536-.236.762-.421.151-.124.285-.27.392-.433.072-.109.167-.39.131-.718-.051-.451-.56-.684-.723-.751a7.362 7.362 0 0 0-.675-.232c-.2-.06-.401-.115-.604-.167zm-2-5.576l-.119.016c-.273.04-.545.102-.801.205-.17.068-.334.155-.475.272-.09.074-.291.311-.317.567-.043.417.283.653.353.705.149.112.311.208.476.294a6.491 6.491 0 0 0 .883.377V3.698z%22 fill=%22%23999999%22/%3E%3C/svg%3E");
+	width:  25px;
+	height: 25px;
+}
+.currency-tile__icon_euro {
+	background: url("euro.svg") no-repeat;
+	width:  26px;
+	height: 26px;
+}
+.currency-tile__value {
+	font-size: 22px;
+	display: inline;
+}
+.currency-tile__trend {
+	font-size: 13px;
+	font-family: Arial;
+	font-weight: bold;
+	line-height: 20px;
+	display: inline;
+	/* superscript */
+	position: relative;
+	bottom: 20px;
+}
+.currency-tile__trend_down { /*# use variable to share value with triangle_trend_down */
+	color: #F44E4E;
+}
+.currency-tile__trend_up { /*# use variable to share value with triangle_trend_up */
+	color: #28C75D;
+}
+
+.weather-tile {
+	display: flex;
+}
+.weather-tile__icon {
+	height: 42px;
+	width:  42px;
+	border-radius: 50%;
+	background: linear-gradient(325deg, #FF7E00 14.11%, #FFAC00 85.89%);
+	box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.04);
+	
+	margin-top: auto;
+    margin-bottom: auto;
+	margin-right: 12px;
+}
+.weather-tile__temperature {
+	font-size: 36px;
+	line-height: 1em;
+	margin-top: auto;
+    margin-bottom: auto;
+	margin-right: 12px;
+}
+.weather-tile__more {}
+.weather-more {}
+.weather-more__info {
+	color: #999999;
+}
+
+.all-projects-tile {
+	height: 36px;
+}
+.all-projects-tile__icon {
+	height: 36px;
+	width:  36px;
+	
+	margin-right: 12px;
+	float: left;
+}
+.all-projects-tile__text {}
+
+/* helpers */
+.vertical-centering-container {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+.vertical-centering-container__content {
+	margin: auto 0;
+}
+.triangle {
+	display: inline-block;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: .3em .2em 0;
+	border-color: transparent;
+	border-top-color: #0053FF;
+}
+.triangle_allProjects {
+	margin-left: .5em;
+}
+.triangle_trend_down {
+	margin-right: .2em;
+	border-top-color: #F44E4E; /*# use variable to share value with currency-tile__trend_down */
+}
+.triangle_trend_up {
+	margin-right: .2em;
+	border-top-color: transparent;
+	border-top-width: 0;
+	border-bottom-color: #28C75D; /*# use variable to share value with currency-tile__trend_up */
+	border-bottom-width: .3em;
+}
+
+/* the "align the last tiles in the row to the same vertical line" quirk */
+.tile-row > :last-child {
+	width: 15em;
+}
+
+/* responsiveness */
+@media screen and (min-width: 1300px) { /* mockups don't specify when exactly we should switch the styles */
+	._extra-large_hide { display: none; }
+}
+@media screen and (max-width: 1300px) {
+	._extra-large-only_show { display: none; }
+	.weather-tile__temperature { font-size: 22px; }
+	.tile-and-header__tile { margin-bottom: auto; }
+	.tile-row > :last-child { width: 12em; }
+}
+@media screen and (max-width: 1250px) { /* a bit of layout optimizing; not very change-proof, though, the layout is tight */
+	.tile-row__item .app-tile__title,
+	.tile-row__item .app-tile__subtitle { /* responsiveness design doesn't seem to follow BEM */
+		width: 8vw;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	.tile-row > :last-child { width: 11em; }
+}
+@media screen and (max-width: 1150px) {
+	.tile-row > :last-child {
+		width: 10em;
+		margin-right: 10px;
+	}
+}
+@media screen and (max-width: 1100px) {
+	.tile-row__item .app-tile__title,
+	.tile-row__item .app-tile__subtitle {
+		width: 7vw;
+	}
+	.tile-row > :last-child {
+		width: 9em;
+	}
+}
+@media screen and (max-width: 1050px) {
+	.tile-row > :last-child { margin-right: 0; }
+}
